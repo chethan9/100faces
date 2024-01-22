@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "994637347768",
+    "project_id": "hundred-faces-main",
+    "storage_bucket": "hundred-faces-main.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994637347768:android:d5ea80532482a1a2a06d4d",
+        "android_client_info": {
+          "package_name": "com.hundredfaces.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC9IPHwHyUOj33kJMd_0iUXNTf0P4Qdak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
