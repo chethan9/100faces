@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">994637347768</string>
+    <string name="google_api_key" translatable="false">AIzaSyBC9IPHwHyUOj33kJMd_0iUXNTf0P4Qdak</string>
+    <string name="google_app_id" translatable="false">1:994637347768:android:d5ea80532482a1a2a06d4d</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBC9IPHwHyUOj33kJMd_0iUXNTf0P4Qdak</string>
+    <string name="google_storage_bucket" translatable="false">hundred-faces-main.appspot.com</string>
+    <string name="project_id" translatable="false">hundred-faces-main</string>
+</resources>
