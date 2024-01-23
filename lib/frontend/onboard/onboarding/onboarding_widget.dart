@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -157,7 +158,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 16.0),
                               child: Text(
-                                'Face reading has been an ancient practice to understand individuals better. Now, it\'s at your fingertips!',
+                                'Face reading has been an ancient practice to understand individuals better. Now, it\'s at your fingertips!..',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -264,6 +265,31 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
+                              ),
+                            ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                unawaited(
+                                  () async {
+                                    await launchURL(
+                                        'https://websitek.in/privacy-policy/');
+                                  }(),
+                                );
+                              },
+                              child: Text(
+                                'Privacy Policy',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: const Color(0xFF0071FF),
+                                      fontWeight: FontWeight.bold,
+                                      decoration: TextDecoration.underline,
+                                    ),
                               ),
                             ),
                           ].divide(const SizedBox(height: 16.0)),

@@ -89,26 +89,44 @@ class _PredictionDetailsWidgetState extends State<PredictionDetailsWidget> {
                 ),
               ),
             ),
-            title: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '100 FACES',
-                  style: FlutterFlowTheme.of(context).labelSmall.override(
-                        fontFamily: 'Montserrat',
-                        color: FlutterFlowTheme.of(context).primaryText,
-                      ),
-                ),
-                Text(
-                  'ADMIN PANEL',
-                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily: 'Montserrat',
-                        color: FlutterFlowTheme.of(context).primary,
-                        fontWeight: FontWeight.w600,
-                      ),
-                ),
-              ],
+            title: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.pushNamed(
+                  'users',
+                  extra: <String, dynamic>{
+                    kTransitionInfoKey: const TransitionInfo(
+                      hasTransition: true,
+                      transitionType: PageTransitionType.fade,
+                      duration: Duration(milliseconds: 0),
+                    ),
+                  },
+                );
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '100 FACES',
+                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                        ),
+                  ),
+                  Text(
+                    'ADMIN PANEL',
+                    style: FlutterFlowTheme.of(context).titleMedium.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).primary,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ],
+              ),
             ),
             actions: [
               Builder(
@@ -162,6 +180,59 @@ class _PredictionDetailsWidgetState extends State<PredictionDetailsWidget> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).tertiary,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Stack(
+                            children: [
+                              if (responsiveVisibility(
+                                context: context,
+                                phone: false,
+                                tablet: false,
+                                tabletLandscape: false,
+                              ))
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Text(
+                                    'Hello World',
+                                    textAlign: TextAlign.center,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ),
+                              Align(
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.safePop();
+                                  },
+                                  child: Icon(
+                                    Icons.chevron_left_outlined,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 Align(
                   alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(

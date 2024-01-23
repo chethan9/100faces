@@ -91,23 +91,41 @@ class _UsersWidgetState extends State<UsersWidget> {
                 ),
               ),
             ),
-            title: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '100 FACES',
-                  style: FlutterFlowTheme.of(context).labelSmall,
-                ),
-                Text(
-                  'ADMIN PANEL',
-                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily: 'Montserrat',
-                        color: FlutterFlowTheme.of(context).primary,
-                        fontWeight: FontWeight.w600,
-                      ),
-                ),
-              ],
+            title: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.pushNamed(
+                  'users',
+                  extra: <String, dynamic>{
+                    kTransitionInfoKey: const TransitionInfo(
+                      hasTransition: true,
+                      transitionType: PageTransitionType.fade,
+                      duration: Duration(milliseconds: 0),
+                    ),
+                  },
+                );
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '100 FACES',
+                    style: FlutterFlowTheme.of(context).labelSmall,
+                  ),
+                  Text(
+                    'ADMIN PANEL',
+                    style: FlutterFlowTheme.of(context).titleMedium.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).primary,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ],
+              ),
             ),
             actions: [
               Builder(
@@ -339,6 +357,15 @@ class _UsersWidgetState extends State<UsersWidget> {
                                                       extra: <String, dynamic>{
                                                         'userPredict':
                                                             listViewUserPredictionRecord,
+                                                        kTransitionInfoKey:
+                                                            const TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          duration: Duration(
+                                                              milliseconds: 0),
+                                                        ),
                                                       },
                                                     );
                                                   } else {

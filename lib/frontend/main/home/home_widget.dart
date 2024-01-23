@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -76,28 +77,48 @@ class _HomeWidgetState extends State<HomeWidget> {
           automaticallyImplyLeading: false,
           leading: Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(16.0, 6.0, 0.0, 6.0),
-            child: Container(
-              width: 44.0,
-              height: 44.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: FlutterFlowTheme.of(context).primary,
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: AuthUserStreamWidget(
-                  builder: (context) => ClipRRect(
-                    borderRadius: BorderRadius.circular(50.0),
-                    child: Image.network(
-                      valueOrDefault<String>(
-                        currentUserPhoto,
-                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hundred-faces-5460t7/assets/yk6vy8j7ux6p/Group_29.svg',
+            child: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.pushNamed(
+                  'EditProfileUser',
+                  extra: <String, dynamic>{
+                    kTransitionInfoKey: const TransitionInfo(
+                      hasTransition: true,
+                      transitionType: PageTransitionType.fade,
+                      duration: Duration(milliseconds: 0),
+                    ),
+                  },
+                );
+              },
+              child: ClipOval(
+                child: Container(
+                  width: 44.0,
+                  height: 44.0,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: FlutterFlowTheme.of(context).primary,
+                    ),
+                  ),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => Container(
+                      width: 120.0,
+                      height: 120.0,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
                       ),
-                      width: 300.0,
-                      height: 200.0,
-                      fit: BoxFit.cover,
+                      child: Image.network(
+                        valueOrDefault<String>(
+                          currentUserPhoto,
+                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hundred-faces-5460t7/assets/7613oaquakzd/Placeholder.png',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
@@ -300,6 +321,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 FFAppState().imagefromuser =
                                     _model.uploadedFileUrl;
 
+                                await currentUserReference!
+                                    .update(createUsersRecordData(
+                                  photoUrl: _model.uploadedFileUrl,
+                                ));
+
                                 context.pushNamed(
                                   'Scanning',
                                   extra: <String, dynamic>{
@@ -382,7 +408,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         child: FFButtonWidget(
                           onPressed: () async {
                             await launchURL(
-                                'https://api.whatsapp.com/send?phone=+919611219811&text=Hi! I need more info');
+                                'https://api.whatsapp.com/send?phone=96550206881&text=Hi! I need more info');
                           },
                           text: 'Contact Us',
                           options: FFButtonOptions(

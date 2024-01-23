@@ -547,7 +547,7 @@ class _ScanningWidgetState extends State<ScanningWidget> {
                           child: Image.network(
                             valueOrDefault<String>(
                               FFAppState().imagefromuser,
-                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hundred-faces-5460t7/assets/wcyr1smjg443/100faces-logo.png',
+                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hundred-faces-5460t7/assets/8zu7q4jbt343/playstore_icon.png',
                             ),
                             fit: BoxFit.cover,
                           ),

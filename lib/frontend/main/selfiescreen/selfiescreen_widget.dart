@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -57,6 +59,33 @@ class _SelfiescreenWidgetState extends State<SelfiescreenWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).tertiary,
+          automaticallyImplyLeading: false,
+          title: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.safePop();
+                },
+                child: Icon(
+                  Icons.chevron_left_outlined,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  size: 24.0,
+                ),
+              ),
+            ],
+          ),
+          actions: const [],
+          centerTitle: false,
+          elevation: 3.0,
+        ),
         body: SafeArea(
           top: true,
           child: Stack(
@@ -255,6 +284,11 @@ class _SelfiescreenWidgetState extends State<SelfiescreenWidget> {
                                     FFAppState().imagefromuser =
                                         _model.uploadedFileUrl;
                                   });
+
+                                  await currentUserReference!
+                                      .update(createUsersRecordData(
+                                    photoUrl: _model.uploadedFileUrl,
+                                  ));
 
                                   context.pushNamed(
                                     'Scanning',

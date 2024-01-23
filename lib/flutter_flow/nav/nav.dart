@@ -94,6 +94,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Welcome',
           path: '/welcome',
+          requireAuth: true,
           builder: (context, params) => const WelcomeWidget(),
         ),
         FFRoute(
@@ -104,6 +105,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Camera_permission',
           path: '/cameraPermission',
+          requireAuth: true,
           builder: (context, params) => const CameraPermissionWidget(),
         ),
         FFRoute(
@@ -187,11 +189,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'EditProfileUser',
           path: '/editprofileuser',
+          requireAuth: true,
           builder: (context, params) => const EditProfileUserWidget(),
         ),
         FFRoute(
           name: 'changepassworduser',
           path: '/changepassworduser',
+          requireAuth: true,
           builder: (context, params) => const ChangepassworduserWidget(),
         ),
         FFRoute(

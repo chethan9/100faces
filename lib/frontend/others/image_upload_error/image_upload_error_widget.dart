@@ -42,7 +42,7 @@ class _ImageUploadErrorWidgetState extends State<ImageUploadErrorWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(16.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12.0),
         child: Container(
